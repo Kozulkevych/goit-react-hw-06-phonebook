@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { ContactForm, LabelForm, InputForm, Error } from './FormContact.styled';
 import { Button } from '../Button/Button';
 import { MdPersonAdd } from 'react-icons/md';
-import {useDispatch , useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
 
@@ -31,14 +31,17 @@ export default function FormContact() {
   const contacts = useSelector(getContacts);
 
   const handleSubmit = ({ name, number }, { resetForm }) => {
-  if (
-      contacts.find(option  => option.name.toLowerCase() === name.toLowerCase())
+    if (
+      contacts.find(option => option.name.toLowerCase() === name.toLowerCase())
     ) {
-return alert(`${name} is already in contacts.`);
-   }
-dispatch(addContact(name, number));
-resetForm();
-};
+      return alert(`${name} is already in contacts.`);
+    }
+    if (contacts.find(option => option.number === number)) {
+      return alert('This number is already in contacts.');
+    }
+    dispatch(addContact(name, number));
+    resetForm();
+  };
 
   return (
     <Formik
