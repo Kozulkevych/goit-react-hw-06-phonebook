@@ -4,15 +4,21 @@ export const ContactItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  :hover,
+  :focus {
+      border-radius: ${p => p.theme.radii.normal};
+     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), -2px -2px 4px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 export const Text = styled.p`
   margin: ${p => p.theme.space[0]};
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.normal};
-  font-family: ${p => p.theme.fonts.heading};
+  font-family: ${p => p.theme.fonts.body};
   padding: ${p => p.theme.space[2]}px;
   line-height: ${p => p.theme.lineHeights.body};
+
 `;
 
 export const ButtonDelete = styled.button`
@@ -20,6 +26,7 @@ export const ButtonDelete = styled.button`
   justify-content: center;
   align-items: center;
   padding: ${p => p.theme.space[2]}px;
+  margin-right: ${p => p.theme.space[2]}px;
   border-radius: ${p => p.theme.radii.round};
   border: ${p => p.theme.borders.none};
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), -2px -2px 4px rgba(0, 0, 0, 0.15);

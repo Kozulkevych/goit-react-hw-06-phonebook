@@ -9,3 +9,10 @@ export const ContactsList = styled.ul`
   list-style: none;
   padding: 0;
 `;
+
+export const Text = styled.p`
+  text-align: center;
+  color: ${p => p.theme.colors.text};
+  font-family: ${p => p.theme.fonts.body};
+  font-size: ${p => p.theme.fontSizes.m};
+`;
